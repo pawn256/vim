@@ -11,6 +11,6 @@ set noundofile
 set runtimepath+=$VIM\.vim\nerdtree
 set runtimepath+=$VIM\.vim\winresizer
 set runtimepath+=$VIM\.vim\colors
-set tags=./tags
+set tags=.tags,tags;
 nnoremap <silent><C-t> :NERDTree<CR>
-set t_Co=256
+"set t_Co=256
