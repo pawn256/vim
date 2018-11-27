@@ -1,4 +1,11 @@
+command -nargs=1 FullSearch call FullSearch(<f-args>)
+function! FullSearch(word)
+  execute 'vimgrep' '/'.a:word.'/j' 'php_*/*.php' 'php_*/*.inc' 'php_*/*.js' 'php_*/*.css'
+  cw
+endfunction
+
 syntax on
+filetype plugin indent on
 set ts=4 sw=4
 augroup fileTypeIndent
     autocmd!
