@@ -21,9 +21,9 @@ set nobackup
 set noundofile
 set ambiwidth=double "全角記号が表示されない件の解消
 
-set runtimepath+=$VIM\.vim\nerdtree
-set runtimepath+=$VIM\.vim\winresizer
-set runtimepath+=$VIM\.vim\colors
+set runtimepath+=$VIM/.vim/nerdtree
+set runtimepath+=$VIM/.vim/winresizer
+set runtimepath+=$VIM/.vim/colors
 set tags=.tags,tags;
-nnoremap <silent><C-t> :NERDTree<CR>
+nnoremap <silent><C-n> :NERDTree<CR>
 "set t_Co=256
