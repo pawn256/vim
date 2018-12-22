@@ -20,6 +20,7 @@ set noswapfile
 set nobackup
 set noundofile
 set ambiwidth=double "全角記号が表示されない件の解消
+set ignorecase
 
 set runtimepath+=$VIM/.vim/nerdtree
 set runtimepath+=$VIM/.vim/winresizer
