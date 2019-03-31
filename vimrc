@@ -14,7 +14,8 @@ augroup fileTypeIndent
 augroup END
 set number
 "colorscheme darkblue
-colorscheme molokai
+"colorscheme molokai
+colorscheme xcode-default
 set encoding=utf-8
 set noswapfile
 set nobackup
@@ -22,9 +23,27 @@ set noundofile
 set ambiwidth=double "全角記号が表示されない件の解消
 set ignorecase
 
-set runtimepath+=$VIM/.vim/nerdtree
-set runtimepath+=$VIM/.vim/winresizer
-set runtimepath+=$VIM/.vim/colors
+set runtimepath+=~/.vim/nerdtree
+set runtimepath+=~/.vim/taglist.vim
+set runtimepath+=~/.vim/SrcExpl
+set runtimepath+=~/.vim/winresizer
+set runtimepath+=~/.vim/colors
 set tags=.tags,tags;
 nnoremap <silent><C-n> :NERDTree<CR>
+set hlsearch
 "set t_Co=256
+if has("cscope")
+  set csprg=/usr/bin/cscope
+  set csto=0
+  set cst
+  set nocsverb
+  " add any database in current directory
+  if filereadable("cscope.out")
+    cs add cscope.out
+  " else add database pointed to by environment 
+  elseif $CSCOPE_DB != ""
+    cs add $CSCOPE_DB
+  endif
+  set csverb
+  set cscopequickfix=s-,c-,d-,i-,t-,e-
+endif
