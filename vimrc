@@ -47,3 +47,5 @@ if has("cscope")
   set csverb
   set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
+let NERDTreeWinSize=20
+set wildmenu " complement command
