@@ -18,7 +18,8 @@ set number
 "colorscheme xcode-default
 "colorscheme github
 "colorscheme gruvbox
-colorscheme polar
+"colorscheme polar
+colorscheme shirotelin
 "set bg=dark
 set bg=light
 set encoding=utf-8
