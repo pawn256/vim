@@ -19,7 +19,8 @@ set number
 "colorscheme github
 "colorscheme gruvbox
 "colorscheme polar
-colorscheme shirotelin
+"colorscheme shirotelin
+colorscheme github
 "set bg=dark
 set bg=light
 set encoding=utf-8
@@ -39,7 +40,7 @@ set runtimepath+=~/.vim/colors
 set tags=.tags,tags;
 nnoremap <silent><C-n> :NERDTree<CR>
 set hlsearch
-"set t_Co=256
+set t_Co=256
 if has("cscope")
   set csprg=/usr/bin/cscope
   set csto=0
