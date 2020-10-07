@@ -28,8 +28,19 @@ set number
 "colorscheme tone
 "colorscheme red_alert
 "colorscheme red_owl
-packadd! dracula
-colorscheme dracula
+"packadd! dracula
+"colorscheme dracula
+packadd! bluewery
+colorscheme bluewery
+"colorscheme bluewery-light
+"" For dark
+"colorscheme bluewery
+"let g:lightline = { 'colorscheme': 'bluewery' }
+
+"" For light
+"colorscheme bluewery-light
+"let g:lightline = { 'colorscheme': 'bluewery_light' }
+"colorscheme blue
 set termguicolors
 set bg=dark
 "set bg=light
