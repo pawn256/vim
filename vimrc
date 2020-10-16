@@ -25,13 +25,15 @@ set number
 "colorscheme fromthehell
 "colorscheme magicka
 "colorscheme night-owl
+"colorscheme eclipse
+"colorscheme ice-age
 "colorscheme tone
 "colorscheme red_alert
 "colorscheme red_owl
-"packadd! dracula
-"colorscheme dracula
-packadd! bluewery
-colorscheme bluewery
+packadd! dracula
+colorscheme dracula
+"packadd! bluewery
+"colorscheme bluewery
 "colorscheme bluewery-light
 "" For dark
 "colorscheme bluewery
