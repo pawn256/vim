@@ -13,7 +13,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 set number
-"colorscheme darkblue
+colorscheme mydarkblue
 "colorscheme molokai
 "colorscheme xcode-default
 "colorscheme gruvbox
@@ -30,8 +30,8 @@ set number
 "colorscheme tone
 "colorscheme red_alert
 "colorscheme red_owl
-packadd! dracula
-colorscheme dracula
+"packadd! dracula
+"colorscheme dracula
 "packadd! bluewery
 "colorscheme bluewery
 "colorscheme bluewery-light
