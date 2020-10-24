@@ -12,7 +12,7 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let colors_name = "darkblue"
+let colors_name = "mydarkblue"
 
 hi Normal		guifg=#c0c0c0 guibg=#000040						ctermfg=gray ctermbg=black
 hi ErrorMsg		guifg=#ffffff guibg=#287eff						ctermfg=white ctermbg=lightblue
@@ -64,5 +64,9 @@ hi Pmenu guifg=#c0c0c0 guibg=#404080
 hi PmenuSel guifg=#c0c0c0 guibg=#2050d0
 hi PmenuSbar guifg=blue guibg=darkgray
 hi PmenuThumb guifg=#c0c0c0
+hi TabLineSel guifg=#ffffff guibg=#808080
+hi TabLine guifg=#ffffff guibg=#303030
+hi TabLineFill guibg=#303030 guifg=#303030
 hi CursorLine guibg=#2040c0 term=NONE cterm=NONE
+"hi CursorLine guibg=#ff0000 term=NONE cterm=NONE
 set cursorline

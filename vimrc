@@ -81,4 +81,5 @@ if has("cscope")
 endif
 let NERDTreeWinSize=20
 set wildmenu " complement command
-set fileencodings=iso-2022-jp,sjis,utf-8
+"set fileencodings=iso-2022-jp,sjis,utf-8
+set fileencodings=utf-8
