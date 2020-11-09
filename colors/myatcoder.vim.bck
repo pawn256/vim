@@ -1,0 +1,124 @@
+set background=light
+
+hi clear
+
+if exists("syntax_on")
+  syntax reset
+endif
+
+let colors_name = "myatcoder"
+  
+" Vim >= 7.0 specific colours
+if version >= 700
+  hi CursorLine   cterm=NONE ctermfg=NONE ctermbg=NONE
+  hi CursorColumn ctermbg=236
+  hi MatchParen   cterm=NONE  ctermfg=016 ctermbg=226
+  hi Pmenu        ctermfg=016 ctermbg=255
+  hi PmenuSel     ctermfg=020 ctermbg=253
+endif
+
+" General colours
+hi Cursor       ctermfg=016 ctermbg=016 " the character under the cursor |
+hi Normal       ctermfg=016 ctermbg=231
+hi NonText      ctermfg=231 ctermbg=231
+hi LineNr       ctermfg=241 ctermbg=NONE
+hi StatusLine   ctermfg=249 ctermbg=238 
+hi StatusLineNC ctermfg=241 ctermbg=249
+hi VertSplit    ctermfg=255 ctermbg=255       " Vertical Split Line
+hi Folded       ctermbg=238 ctermfg=248
+hi FoldColumn   cterm=NONE ctermbg=NONE
+hi Title        ctermfg=016 
+hi Visual       ctermbg=187
+hi SpecialKey   ctermfg=126 ctermbg=153
+hi Error        ctermfg=231 ctermbg=124
+
+" Syntax highlighting
+hi Comment      ctermfg=28
+hi Todo         ctermfg=9 
+hi Constant     ctermfg=126
+hi String       ctermfg=160 " if not specified, equals Constant
+hi Character    ctermfg=160 " 'c','\n' if not specified, equals Constant
+hi Number       ctermfg=20  " 234,0xff. if not specified, equals Constant
+hi Boolean      ctermfg=20  " TRUE,false. if not specified, equals Constant
+hi Float        ctermfg=20  " 2.3e10. if not specified, equals Constant
+hi Identifier   ctermfg=126 " any variable name
+hi Function     ctermfg=016 " function name
+hi Statement    ctermfg=126
+hi Conditional  ctermfg=126 " if, then, else, endif, switch, etc. if not specified, equals Statement
+"hi Repeat       ctermfg=126 " for, do, while, etc. if not specified, equals Statement
+"hi Label        ctermfg=126 " case, default, etc. if not specified, equals Statement
+"hi Operator     ctermfg=126 " 'sizeof','+', '*', etc. if not specified, equals Statement
+"hi Exception    ctermfg=126 " 	try, catch, throw. if not specified, equals Statement
+hi Keyword      ctermfg=126 " any other keyword. if not specified, equals Statement
+hi PreProc      ctermfg=030
+"hi Define " #define if not specified,equals PreProc
+"hi Include " #include  if not specified,equals PreProc
+"hi PreCondit " #if,#else,#endif etc. if not specified,equals PreProc
+hi Type         ctermfg=055 " int, long, char, etc. 
+"hi StorageClass ctermfg=055 " static, register, volatile, etc. if not specified, equals Type
+"hi Structure    ctermfg=055 " struct, union, enum, etc. if not specified, equals Type
+"hi Typedef      ctermfg=055 " A typedef if not specified, equals Type
+hi Special      ctermfg=126 " any special symbol
+"hi SpecialChar	" special character in a constant
+"hi Tag	" you can use CTRL-] on this
+"hi Delimiter	" character that needs attention
+"hi SpecialComment	" special things inside a comment
+"hi Debug	" debugging statements
+"hi Underlined	" text that stands out, HTML links
+hi Search       cterm=underline ctermbg=228 ctermfg=236
+hi Delimiter    ctermfg=126
+hi parens       ctermfg=016
+
+" Python
+hi pythonBuiltin            ctermfg=126
+hi pythonBuiltinFunc        ctermfg=126
+hi pythonBuiltinObj         ctermfg=030
+hi pythonCustomFunc         ctermfg=126
+hi pythonDecorator          ctermfg=055
+hi pythonInclude            ctermfg=126  " Python imports, etc
+hi pythonInstances          ctermfg=126  
+hi pythonStatement          ctermfg=126
+hi pythonConditional        ctermfg=126
+hi pythonRepeat	            ctermfg=126
+hi pythonOperator           ctermfg=126
+hi pythonException          ctermfg=126
+hi pythonBuiltinConstant    ctermfg=126
+hi pythonBoolean            ctermfg=126
+hi pythonAttribute          ctermfg=130
+hi pythonString             ctermfg=021
+hi pythonQuotes             ctermfg=021
+hi docstring                ctermfg=160
+
+
+autocmd Filetype python call SetColors()
+function SetColors()
+    syn keyword pythonBoolean     True False
+    syn keyword pythonStatement   as nonlocal None
+    syn keyword pythonInstances   self cls
+    syn match pythonStatement /,/
+    syn match docstring /"""\_.\{-}"""/
+endfunction
+
+" Javascript
+hi javaScriptReserved ctermfg=126
+hi javaScriptNumber ctermfg=020
+hi javaScriptFuncArg ctermfg=055
+hi javascriptBlock ctermfg=030
+hi javascriptIdentifier ctermfg=126
+hi javascriptBOMHistoryProp ctermfg=016
+hi javascriptObjectLabel ctermfg=016
+
+
+" HTML
+hi htmlArg ctermfg=030
+hi htmlString ctermfg=020
+hi htmlComment ctermfg=28
+hi link htmlCommentPart htmlComment
+hi htmlTag ctermfg=244
+hi link htmlTagN htmlTag
+hi link htmlEndTag htmlTag
+
+" NerdTree
+hi NerdTreeDirSlash cterm=NONE ctermfg=231 ctermbg=231
+hi NerdTreeCWD cterm=NONE ctermfg=241 ctermbg=NONE
+

@@ -15,7 +15,8 @@ augroup END
 set number
 "colorscheme mydarkblue
 "colorscheme molokai
-colorscheme xcode-default
+"colorscheme xcode-default
+colorscheme myatcoder
 "colorscheme gruvbox
 "colorscheme polar
 "colorscheme shirotelin
