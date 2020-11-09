@@ -20,7 +20,7 @@ endif
 
 " General colours
 hi Cursor       ctermfg=016 ctermbg=016 " the character under the cursor |
-hi Normal       ctermfg=016 ctermbg=255
+hi Normal       ctermfg=016 ctermbg=231
 hi NonText      ctermfg=231 ctermbg=231
 hi LineNr       ctermfg=241 ctermbg=NONE
 hi StatusLine   ctermfg=249 ctermbg=238 
@@ -126,6 +126,12 @@ hi link htmlEndTag htmlTag
 hi NerdTreeDirSlash cterm=NONE ctermfg=231 ctermbg=231
 hi NerdTreeCWD cterm=NONE ctermfg=241 ctermbg=NONE
 
+hi link htmlEndTag htmlTag
+
+" NerdTree
+hi NerdTreeDirSlash cterm=NONE ctermfg=241 ctermbg=231
+hi NerdTreeCWD cterm=NONE ctermfg=241 ctermbg=NONE
+
 " C++
 hi myspsym ctermfg=088
 hi parens ctermfg=064
@@ -136,36 +142,100 @@ autocmd Syntax * syn match parens /[+]/
 autocmd Syntax * syn match parens /[-]/
 autocmd Syntax * syn match parens /[*]/
 autocmd Syntax * syn match parens /\/\(\/\)\@!/
-autocmd BufEnter * call MySetColorsInit()
+"autocmd BufEnter * call MySetColorsInit()
 function! MySetColorsInit()
     let b:Vm_sign_number = 1
     let i = 1
     let ln = line("$")
     while i <= ln
         "exe 'sign define SignSymbol linehl=SignColor texthl=SignColor'
-        exe 'sign define SignSymbol' . i . ' linehl=SignColor' . i . ' texthl=SignColor' . i
-        exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol' . i . ' buffer=' . winbufnr(0)
+        if i % 2 == 1
+            "exe 'sign define SignSymbol0 linehl=SignColor0 texthl=SignColor0'
+            "exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol0 buffer=' . winbufnr(0)
+            "exe 'hi SignColor0 ctermbg=255'
+        else
+            exe 'sign define SignSymbol1 linehl=SignColor1 texthl=SignColor1'
+            exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol1 buffer=' . winbufnr(0)
+            exe 'hi SignColor1 ctermbg=254'
+        endif
         "let vsn              = b:Vm_sign_number
         "let b:Vm_sign_number = b:Vm_sign_number + 1
         if i % 2 == 1
-            exe 'hi SignColor' . i . ' ctermbg=255'
+            let i += 1
         else
-            exe 'hi SignColor' . i . ' ctermbg=254'
+            let i += 2
         endif
-
-        let i += 1
     endwhile
 endfunction
 
-autocmd CursorMoved,CursorMovedI * call MySetColorsMain()
+"autocmd CursorMoved * call MySetColorsMain()
+"autocmd CursorMovedI * call MySetColorsMain()
+"autocmd TextChanged * call MySetColorsMain()
+"autocmd TextChangedI * call MySetColorsMain()
+let g:mysetcolorln = line("$")
 function! MySetColorsMain()
-    let ln = line(".")
-    exe 'sign define SignSymbol' . ln . ' linehl=SignColor' . ln . ' texthl=SignColor' . ln
-    exe 'sign place ' . ln . ' line=' . ln . ' name=SignSymbol' . ln . ' buffer=' . winbufnr(0)
-    if ln % 2 == 1
-        exe 'hi SignColor' . ln . ' ctermbg=255'
-    else
-        exe 'hi SignColor' . ln . ' ctermbg=254'
+    if g:mysetcolorln != line("$")
+        let g:mysetcolorln = line("$")
+        let winend = line("w$")
+        let winstart = line("w0")
+
+        "if winstart == 1
+        "    let i = 1
+        "else
+        "    let i = g:mysetcolorln - 1
+        "endif
+        let i = winstart
+
+        exe 'sign define SignSymbol0 linehl=SignColor0 texthl=SignColor0'
+        exe 'sign place 1 line=1 name=SignSymbol0 buffer=' . winbufnr(0)
+        exe 'hi SignColor0 ctermbg=255'
+        while i <= winend
+            if i % 2 == 0
+                exe 'sign unplace '. i
+                exe 'sign define SignSymbol1 linehl=SignColor1 texthl=SignColor1'
+                exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol1 buffer=' . winbufnr(0)
+                exe 'hi SignColor1 ctermbg=254'
+            else
+                exe 'sign unplace '. i
+                exe 'sign define SignSymbol0 linehl=SignColor0 texthl=SignColor0'
+                exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol0 buffer=' . winbufnr(0)
+                exe 'hi SignColor1 ctermbg=255'
+            endif
+            let i += 1
+        endwhile
+        if g:mysetcolorln % 2 == 0
+                exe 'sign unplace '. g:mysetcolorln
+                exe 'sign define SignSymbol1 linehl=SignColor1 texthl=SignColor1'
+                exe 'sign place ' . g:mysetcolorln . ' line=' . g:mysetcolorln . ' name=SignSymbol1 buffer=' . winbufnr(0)
+                exe 'hi SignColor1 ctermbg=254'
+        else
+                exe 'sign unplace '. g:mysetcolorln
+                exe 'sign define SignSymbol0 linehl=SignColor0 texthl=SignColor0'
+                exe 'sign place ' . g:mysetcolorln . ' line=' . g:mysetcolorln . ' name=SignSymbol0 buffer=' . winbufnr(0)
+                exe 'hi SignColor1 ctermbg=255'
+        endif
+        ""exe 'hi SignColor0 ctermbg=255'
+        "exe 'hi SignColor1 ctermbg=254'
+        "if i % 2 == 1
+        "    "exe 'sign define SignSymbol0 linehl=SignColor0 texthl=SignColor0'
+        "    "exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol0 buffer=' . winbufnr(0)
+        "    "exe 'hi SignColor0 ctermbg=255'
+        "else
+        "    exe 'sign define SignSymbol1 linehl=SignColor1 texthl=SignColor1'
+        "    exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol1 buffer=' . winbufnr(0)
+        "    exe 'hi SignColor1 ctermbg=254'
+        "endif
+        ""while i <= g:mysetcolorln+5
+        ""    exe 'sign unplace '. i
+        ""    exe 'sign define SignSymbol' . i . ' linehl=SignColor' . i . ' texthl=SignColor' . i 
+        ""    exe 'sign place ' . i . ' line=' . i . ' name=SignSymbol' . i . ' buffer=' . winbufnr(0)
+        ""    if i % 2 == 1
+        ""        exe 'hi SignColor' . i . ' ctermbg=255'
+        ""    else
+        ""        exe 'hi SignColor' . i . ' ctermbg=254'
+        ""    endif
+        ""    let i += 1
+        ""endwhile
     endif
 endfunction
 
@@ -177,3 +247,11 @@ endfunction
 " if nest.
 "hi par2 ctermfg=blue guifg=blue
 "hi par3 ctermfg=darkgreen guifg=darkgreen
+""autocmd Syntax * syn match parens /\/\(\/\)\@!/
+"hi Oddlines ctermbg=yellow guibg=#FFFF99
+"hi Evenlines ctermbg=magenta guibg=#FFCCFF
+""autocmd Syntax * syn region msSpeech start=/.*/ end=/.*/
+""hi msSpeech ctermbg=088 guifg=#000088
+"autocmd Syntax * syn match Oddlines "^.*$" contains=ALL nextgroup=Evenlines skipnl
+"autocmd Syntax * syn match Evenlines "^.*$" contains=ALL nextgroup=Oddlines skipnl
+
