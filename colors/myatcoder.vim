@@ -20,7 +20,7 @@ endif
 
 " General colours
 hi Cursor       ctermfg=016 ctermbg=016 " the character under the cursor |
-hi Normal       ctermfg=016 ctermbg=231
+hi Normal       ctermfg=016 ctermbg=255
 hi NonText      ctermfg=231 ctermbg=231
 hi LineNr       ctermfg=241 ctermbg=NONE
 hi StatusLine   ctermfg=249 ctermbg=238 
@@ -144,9 +144,9 @@ function! MySetColorsInit()
         "let vsn              = b:Vm_sign_number
         "let b:Vm_sign_number = b:Vm_sign_number + 1
         if i % 2 == 1
-            exe 'hi SignColor' . i . ' ctermbg=231'
+            exe 'hi SignColor' . i . ' ctermbg=255'
         else
-            exe 'hi SignColor' . i . ' ctermbg=015'
+            exe 'hi SignColor' . i . ' ctermbg=254'
         endif
 
         let i += 1
@@ -159,9 +159,9 @@ function! MySetColorsMain()
     exe 'sign define SignSymbol' . ln . ' linehl=SignColor' . ln . ' texthl=SignColor' . ln
     exe 'sign place ' . ln . ' line=' . ln . ' name=SignSymbol' . ln . ' buffer=' . winbufnr(0)
     if ln % 2 == 1
-        exe 'hi SignColor' . ln . ' ctermbg=231'
+        exe 'hi SignColor' . ln . ' ctermbg=255'
     else
-        exe 'hi SignColor' . ln . ' ctermbg=015'
+        exe 'hi SignColor' . ln . ' ctermbg=254'
     endif
 endfunction
 
