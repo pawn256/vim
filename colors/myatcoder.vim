@@ -48,7 +48,7 @@ hi Statement    ctermfg=018
 hi Conditional  ctermfg=018 " if, then, else, endif, switch, etc. if not specified, equals Statement
 hi Repeat       ctermfg=018 " for, do, while, etc. if not specified, equals Statement
 "hi Label        ctermfg=018 " case, default, etc. if not specified, equals Statement
-"hi Operator     ctermfg=018 " 'sizeof','+', '*', etc. if not specified, equals Statement
+"hi Operator     ctermfg=064 " 'sizeof','+', '*', etc. if not specified, equals Statement
 "hi Exception    ctermfg=018 " 	try, catch, throw. if not specified, equals Statement
 hi Keyword      ctermfg=018 " any other keyword. if not specified, equals Statement
 "hi PreProc      ctermfg=001
@@ -132,6 +132,10 @@ hi parens ctermfg=064
 autocmd Syntax c,cpp syn match myspsym /#define/
 "autocmd Syntax c,cpp syn match parens /[(){}\[\]&!\^,.;:%=<>|]/
 autocmd Syntax * syn match parens /[(){}\[\]&!\^,.;:%=<>|]/
+autocmd Syntax * syn match parens /[+]/
+autocmd Syntax * syn match parens /[-]/
+autocmd Syntax * syn match parens /[*]/
+autocmd Syntax * syn match parens /\/\(\/\)\@!/
 autocmd BufEnter * call MySetColorsInit()
 function! MySetColorsInit()
     let b:Vm_sign_number = 1
