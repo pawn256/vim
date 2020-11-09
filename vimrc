@@ -13,9 +13,9 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 set number
-colorscheme mydarkblue
+"colorscheme mydarkblue
 "colorscheme molokai
-"colorscheme xcode-default
+colorscheme xcode-default
 "colorscheme gruvbox
 "colorscheme polar
 "colorscheme shirotelin
@@ -43,8 +43,8 @@ colorscheme mydarkblue
 "colorscheme bluewery-light
 "let g:lightline = { 'colorscheme': 'bluewery_light' }
 "colorscheme blue
-set termguicolors
-set bg=dark
+"set termguicolors
+"set bg=dark
 "set bg=light
 set encoding=utf-8
 set noswapfile
@@ -52,6 +52,7 @@ set nobackup
 set noundofile
 set ambiwidth=double "全角記号が表示されない件の解消
 set ignorecase
+"set cursorline
 
 set runtimepath+=~/.vim/nerdtree
 set runtimepath+=~/.vim/vim-haskell-indent/
