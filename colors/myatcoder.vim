@@ -142,8 +142,8 @@ autocmd Syntax * syn match parens /[(){}\[\]&!\^,.;:%=<>|]/
 autocmd Syntax * syn match parens /[+]/
 autocmd Syntax * syn match parens /[-]/
 autocmd Syntax * syn match parens /[*]/
-"autocmd Syntax * syn match parens /\/\(\/\)\@!/
-autocmd Syntax * syn match parens /\/[^*/]/
+autocmd Syntax * syn match parens /\/\([\/\*]\)\@!/
+"autocmd Syntax * syn match parens /\/[^\*\/]/
 "autocmd BufEnter * call MySetColorsInit()
 function! MySetColorsInit()
     let b:Vm_sign_number = 1
