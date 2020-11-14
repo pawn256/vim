@@ -136,12 +136,14 @@ hi NerdTreeCWD cterm=NONE ctermfg=241 ctermbg=NONE
 hi myspsym ctermfg=088
 hi parens ctermfg=064
 autocmd Syntax c,cpp syn match myspsym /#define/
+autocmd Syntax c,cpp syn match myspsym /#undef/
 "autocmd Syntax c,cpp syn match parens /[(){}\[\]&!\^,.;:%=<>|]/
 autocmd Syntax * syn match parens /[(){}\[\]&!\^,.;:%=<>|]/
 autocmd Syntax * syn match parens /[+]/
 autocmd Syntax * syn match parens /[-]/
 autocmd Syntax * syn match parens /[*]/
-autocmd Syntax * syn match parens /\/\(\/\)\@!/
+"autocmd Syntax * syn match parens /\/\(\/\)\@!/
+autocmd Syntax * syn match parens /\/[^*/]/
 "autocmd BufEnter * call MySetColorsInit()
 function! MySetColorsInit()
     let b:Vm_sign_number = 1
