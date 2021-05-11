@@ -13,7 +13,7 @@
     "dot-prop": "^4.2.1",
     "estilo": "1.4.1",
     "handlebars": "^4.5.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "termcolors": "^0.5.0"
   }
 }
