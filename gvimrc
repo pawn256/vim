@@ -16,7 +16,7 @@ set number
 "colorscheme mydarkblue
 "colorscheme molokai
 "colorscheme xcode-default
-"colorscheme myatcoder
+colorscheme myatcoder
 "colorscheme gruvbox
 "colorscheme polar
 "colorscheme shirotelin
@@ -54,11 +54,10 @@ set noundofile
 set ambiwidth=double "全角記号が表示されない件の解消
 set ignorecase
 "set cursorline
-set backspace=2
 
 set runtimepath+=~/.vim/nerdtree
 set runtimepath+=~/.vim/vim-haskell-indent/
-set runtimepath+=~/.vim/haskell-vim/
+"set runtimepath+=~/.vim/haskell-vim/
 set runtimepath+=~/.vim/taglist.vim
 set runtimepath+=~/.vim/SrcExpl
 set runtimepath+=~/.vim/winresizer
