@@ -13,6 +13,9 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 set number
+colorscheme lucid
+"colorscheme PaperColor
+"colorscheme jellybeans
 "colorscheme mydarkblue
 "colorscheme molokai
 "colorscheme xcode-default
@@ -21,6 +24,11 @@ set number
 "colorscheme polar
 "colorscheme shirotelin
 "colorscheme github
+"colorscheme github2
+"colorscheme nord
+"colorscheme summerfruit256
+"colorscheme ironman
+"colorscheme nuvola
 "colorscheme rigel
 "colorscheme ChocolateLiquor
 "colorscheme fromthehell
@@ -44,8 +52,8 @@ set number
 "colorscheme bluewery-light
 "let g:lightline = { 'colorscheme': 'bluewery_light' }
 "colorscheme blue
-"set termguicolors
-"set bg=dark
+set termguicolors
+set bg=dark
 "set bg=light
 set encoding=utf-8
 set noswapfile
@@ -53,12 +61,14 @@ set nobackup
 set noundofile
 set ambiwidth=double "全角記号が表示されない件の解消
 set ignorecase
+set smartcase
+set list
+set incsearch
 "set cursorline
-set backspace=2
 
 set runtimepath+=~/.vim/nerdtree
 set runtimepath+=~/.vim/vim-haskell-indent/
-set runtimepath+=~/.vim/haskell-vim/
+"set runtimepath+=~/.vim/haskell-vim/
 set runtimepath+=~/.vim/taglist.vim
 set runtimepath+=~/.vim/SrcExpl
 set runtimepath+=~/.vim/winresizer
@@ -86,3 +96,4 @@ let NERDTreeWinSize=20
 set wildmenu " complement command
 "set fileencodings=iso-2022-jp,sjis,utf-8
 set fileencodings=utf-8
+
